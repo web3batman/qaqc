@@ -21,32 +21,30 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 from apiclient.http import MediaIoBaseDownload
 from apiclient.http import MediaFileUpload
-
+from db_setup import init_db, db_session
 import numpy as np
 #import argparse
-#import imutils
+import imutils
 from datetime import date
 
 import os
 from pdf2image import convert_from_path, convert_from_bytes
 from pyzbar.pyzbar import decode
 #curl -d "{\"Medidas\":[[1,2,3,4]]}" -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/predecir
-
-
+from db_setup import init_db, db_session
+from plano_model import plano,plano_form,plano_convert
+from f0016_2_model import f0016_2,f0016_2_form,f0016_2_convert
 
 app= Flask(__name__)
+app.register_blueprint(f0016_2_app)
+
+os.getcwd()
+fndisc = glob(os.getcwd() +'\\disciplina\\*\\')
+lsdisc = [os.path.relpath(x).replace('disciplina\\','') for x in fndisc]
 
 @app.route("/")
 def home():
-    return 'La pagina esta funcionando bien'
-
-@app.route("/predecir", methods=["POST"])
-def predecir():
-    json=request.get_json(force=True)
-    medidas=json['Medidas']
-    clf=joblib.load('Modelo_Entrenado.pkl')
-    prediccion=clf.predict(medidas)
-    return 'Las medidas que diste corresponden a la clase {0}\n\n'.format(prediccion)
+    return render_template('disciplina_list.html', table=lsdisc )
 
 if __name__ == '__main__':
     app.run()
