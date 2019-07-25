@@ -4,6 +4,8 @@ import sklearn
 import cv2
 #curl -d "{\"Medidas\":[[1,2,3,4]]}" -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/predecir
 
+
+
 app= Flask(__name__)
 
 @app.route("/")
