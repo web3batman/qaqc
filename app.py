@@ -40,12 +40,11 @@ from f0016_2_model import f0016_2,f0016_2_form,f0016_2_convert
 app= Flask(__name__)
 app.register_blueprint(f0016_2_app)
 
-os.getcwd()
-fndisc = glob(os.getcwd() +'\\disciplina\\*\\')
-lsdisc = [os.path.relpath(x).replace('disciplina\\','') for x in fndisc]
-
 @app.route("/")
 def home():
+    os.getcwd()
+    fndisc = glob(os.getcwd() +'\\disciplina\\*\\')
+    lsdisc = [os.path.relpath(x).replace('disciplina\\','') for x in fndisc]
     return render_template('disciplina_list.html', table=lsdisc )
 
 if __name__ == '__main__':
