@@ -42,10 +42,9 @@ app.register_blueprint(f0016_2_app)
 
 @app.route("/")
 def home():
-    os.getcwd()
-    fndisc = glob(os.getcwd() +'\\disciplina\\*\\')
+    fndisc = glob('/disciplina/*/')
     lsdisc = [os.path.relpath(x).replace('disciplina\\','') for x in fndisc]
-    return render_template('disciplina_list.html', table=lsdisc )
+    return render_template('disciplina_list.html', table=fndisc )
 
 if __name__ == '__main__':
     app.run()
