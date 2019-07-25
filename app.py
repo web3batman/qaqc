@@ -32,6 +32,8 @@ from pdf2image import convert_from_path, convert_from_bytes
 from pyzbar.pyzbar import decode
 #curl -d "{\"Medidas\":[[1,2,3,4]]}" -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/predecir
 from db_setup import init_db, db_session
+
+from f0016_2_app import *
 from plano_model import plano,plano_form,plano_convert
 from f0016_2_model import f0016_2,f0016_2_form,f0016_2_convert
 
