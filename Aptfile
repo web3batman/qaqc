@@ -8,3 +8,4 @@ libpango1.0-dev
 libgif-dev
 build-essential
 g++
+libzbar0
