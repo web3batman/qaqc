@@ -31,8 +31,8 @@ import os
 from pdf2image import convert_from_path, convert_from_bytes
 from pyzbar.pyzbar import decode
 #curl -d "{\"Medidas\":[[1,2,3,4]]}" -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/predecir
-from db_setup import init_db, db_session
-
+from db_setup import init_db, db_session, service
+import googledrive as gd
 from f0016_2_app import *
 from plano_model import plano,plano_form,plano_convert
 from f0016_2_model import f0016_2,f0016_2_form,f0016_2_convert
@@ -42,9 +42,9 @@ app.register_blueprint(f0016_2_app)
 
 @app.route("/")
 def home():
-    fndisc = glob('/disciplina/*/')
-    lsdisc = [os.path.relpath(x).replace('disciplina\\','') for x in fndisc]
-    return render_template('disciplina_list.html', table=fndisc )
+    disc = gd.items_folder(service,'Formatos_Calidad')
+    disc = [x['title'] for x in disc]
+    return render_template('disciplina_list.html', table=disc )
 
 if __name__ == '__main__':
     app.run()
