@@ -45,7 +45,12 @@ def home():
     disc = gd.items_folder(service,'Formatos_Calidad')
     disc = [x['title'] for x in disc]
     return render_template('disciplina_list.html', table=disc )
-
+@app.route("/list_formato")
+def list_formato():
+    name = request.args.get('disciplina', None)
+    disc = gd.items_folder(service,name )
+    disc = [x['title'] for x in disc]
+    return render_template('formato_list.html', table=disc )
 if __name__ == '__main__':
     app.run()
 
