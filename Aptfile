@@ -14,4 +14,5 @@ libzbar-dev
 libpoppler-cpp-dev
 graphicsmagick
 libpng-dev
+libpng12-dev
 zlib1g-dev
