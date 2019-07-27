@@ -29,5 +29,9 @@ def items_folder(service, path):
         if not page_token:
             break
     result = [service.files().get(fileId=x['id'] ).execute() for x in result]
-
     return result
+
+def get_contain_file(service, contain):
+    query = "title contains '{}'".format(contain)
+    file = service.files().list(q=query,pageToken=None).execute()
+    return file
