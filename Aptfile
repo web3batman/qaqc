@@ -11,3 +11,4 @@ g++
 libzbar0
 libpq-dev
 libzbar-dev
+libpoppler-cpp-dev
