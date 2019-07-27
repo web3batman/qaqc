@@ -1,2 +1,1 @@
-source "https://rubygems.org"
-gem "pg"
+gem 'poppler', '3.0.8'
