@@ -143,12 +143,12 @@ def upload():
         return render_template('upload.html')
     if request.method == 'POST':
         f = request.files['file']
-        pdfname = 'temp.pdf'
+#        pdfname = 'temp.pdf'
         jpgname = 'temp.jpg'
-        f.save(pdfname)
-        images_from_path = convert_from_path(pdfname, dpi=300, last_page=1, first_page =1)
-        for page in images_from_path:
-            page.save(jpgname)
+        f.save(jpgname)
+#        images_from_path = convert_from_path(pdfname, dpi=300, last_page=1, first_page =1)
+#        for page in images_from_path:
+#            page.save(jpgname)
         image = cv2.imread(jpgname)
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         ddepth = cv2.cv.CV_32F if imutils.is_cv2() else cv2.CV_32F
@@ -192,7 +192,7 @@ def upload():
         db_session.flush()
         db_session.commit()
         
-        os.rename(pdfname, c1 + ".pdf")
+        os.rename(jpgname, c1 + ".jpg")
         
         SCOPES = 'https://www.googleapis.com/auth/drive'
         store = file.Storage('storage.json')
@@ -204,10 +204,10 @@ def upload():
         buscar = DRIVE.files().list(q="title='DataBase'",fields='nextPageToken, items(id, title)',pageToken=None).execute()
         folder_id = buscar['items'][0]['id']
         body = {
-        'title': c1 + ".pdf",
-        'mimeType': 'application/pdf',
+        'title': c1 + ".jpg",
+        'mimeType': 'image/jpeg',
         "parents": [{"id": folder_id, "kind": "drive#childList"}] }                 
-        media_body = MediaFileUpload(c1 + ".pdf", mimetype='application/pdf', resumable=True)
+        media_body = MediaFileUpload(c1 + ".jpg", mimetype='image/jpeg', resumable=True)
         res = DRIVE.files().insert(
                     body=body,
                     media_body= media_body).execute()
