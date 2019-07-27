@@ -40,7 +40,6 @@ from plano_model import plano,plano_form,plano_convert
 from f0016_2_model import f0016_2,f0016_2_form,f0016_2_convert
 from ubicacion_model import ubicacion,ubicacion_form,ubicacion_convert
 
-
 app= Flask(__name__)
 app.register_blueprint(f0016_2_app)
 
