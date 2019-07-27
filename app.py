@@ -43,6 +43,8 @@ from ubicacion_model import ubicacion,ubicacion_form,ubicacion_convert
 app= Flask(__name__)
 app.register_blueprint(f0016_2_app)
 
+
+
 @app.route("/")
 def home():
     disc = gd.items_folder(service,'Formatos_Calidad')
