@@ -42,19 +42,23 @@ from ubicacion_model import ubicacion,ubicacion_form,ubicacion_convert
 
 app= Flask(__name__)
 app.register_blueprint(f0016_2_app)
+#@app.route("/")
+#def home():
+#    return render_template('pages/placeholder.home.html')
 
 @app.route("/")
 def home():
     disc = gd.items_folder(service,'Formatos_Calidad')
     disc = [x['title'] for x in disc]
-    return render_template('disciplina_list.html', table=disc )
+    return render_template('pages/disciplina_list.html', table=disc )
+    
 @app.route("/list_formato")
 def list_formato():
     name = request.args.get('disciplina', None)
     disc = gd.items_folder(service,name )
 #    disc = [x['title'].split('_')[-1] for x in disc]
     disc = [x['title'] for x in disc]
-    return render_template('formato_list.html', table=disc )
+    return render_template('pages/formato_list.html', table=disc )
 @app.route("/list_protocolo", methods=['GET', 'POST'])
 def list_protocolo():
     if request.method == 'GET':
@@ -62,14 +66,14 @@ def list_protocolo():
         name = request.args.get('format', None)
         fname = 'f' + name.split('.')[0].split('-')[-1] + '_2'
         exec("qry1 = db_session.query(" + fname + ").all()")
-        return render_template('protocolo_list.html',table=locals()['qry1'], formato = fname)
+        return render_template('pages/protocolo_list.html',table=locals()['qry1'], formato = fname)
 @app.route("/edit_protocolo", methods=['GET', 'POST'])
 def edit_protocolo():
     if request.method == 'GET':
         global fname
         name = request.args.get('format', None)
         fname = 'f' + name.split('.')[0].split('-')[-1] + '_2'
-        return render_template(fname + '.html')
+        return render_template('forms/' + fname + '.html')
     if request.method == 'POST':
         exec("form =" + fname + "_form(request.form)")
         exec("formats = " + fname + "_convert(" + fname + "(),form)")
@@ -140,7 +144,7 @@ def protocolo_print():
 @app.route('/upload', methods = ['GET', 'POST'])
 def upload():
     if request.method == 'GET':
-        return render_template('upload.html')
+        return render_template('pages/upload.html')
     if request.method == 'POST':
         f = request.files['file']
 #        pdfname = 'temp.pdf'
