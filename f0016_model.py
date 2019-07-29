@@ -3,8 +3,8 @@ from wtforms import Form, StringField, SelectField, validators, IntegerField
 from sqlalchemy import Table, Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy import UniqueConstraint, exc
-class f0016_2(db.Model):
-    __tablename__ = "f0016_2"
+class f0016(db.Model):
+    __tablename__ = "f0016"
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True)
     area = db.Column(db.String, nullable=False)
@@ -25,7 +25,7 @@ class f0016_2(db.Model):
     fscan = db.Column(db.String, nullable=False)
     esquema = db.Column(db.String, nullable=False)
     observacion = db.Column(db.String, nullable=False)
-class f0016_2_form(Form):
+class f0016_form(Form):
     id = IntegerField('id')
     area = StringField('area')
     subarea = StringField('subarea')
@@ -45,27 +45,27 @@ class f0016_2_form(Form):
     fscan = StringField('fscan')
     esquema = StringField('esquema')
     observacion = StringField('observacion')
-def f0016_2_convert(f0016_2, form):
-    f0016_2.id = form.id.data
-    f0016_2.area = form.area.data
-    f0016_2.subarea = form.subarea.data
-    f0016_2.elemento = form.elemento.data
-    f0016_2.ubicacion = form.ubicacion.data
-    f0016_2.fecha = form.fecha.data
-    f0016_2.plano = form.plano.data
-    f0016_2.metodo = form.metodo.data
-    f0016_2.q21 = form.q21.data
-    f0016_2.q22 = form.q22.data
-    f0016_2.q23 = form.q23.data
-    f0016_2.q24 = form.q24.data
-    f0016_2.q25 = form.q25.data
-    f0016_2.q26 = form.q26.data
-    f0016_2.q27 = form.q27.data
-    f0016_2.fprint = form.fprint.data
-    f0016_2.fscan = form.fscan.data
-    f0016_2.esquema = form.esquema.data
-    f0016_2.observacion = form.observacion.data
-    return f0016_2
+def f0016_convert(f0016, form):
+    f0016.id = form.id.data
+    f0016.area = form.area.data
+    f0016.subarea = form.subarea.data
+    f0016.elemento = form.elemento.data
+    f0016.ubicacion = form.ubicacion.data
+    f0016.fecha = form.fecha.data
+    f0016.plano = form.plano.data
+    f0016.metodo = form.metodo.data
+    f0016.q21 = form.q21.data
+    f0016.q22 = form.q22.data
+    f0016.q23 = form.q23.data
+    f0016.q24 = form.q24.data
+    f0016.q25 = form.q25.data
+    f0016.q26 = form.q26.data
+    f0016.q27 = form.q27.data
+    f0016.fprint = form.fprint.data
+    f0016.fscan = form.fscan.data
+    f0016.esquema = form.esquema.data
+    f0016.observacion = form.observacion.data
+    return f0016
 #def area_obj(area, obj):
 #    area.id = obj.id
 #    area.area = obj.area_nombre
