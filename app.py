@@ -11,15 +11,25 @@ from db_setup import init_db, db_session, service
 import googledrive as gd
 from f0016_model import f0016,f0016_form,f0016_convert
 from f0006_model import f0006,f0006_form,f0006_convert
+from f0007_model import f0007,f0007_form,f0007_convert
+from f0033_model import f0033,f0033_form,f0033_convert
+from f0004_model import f0004,f0004_form,f0004_convert
+from f0005_model import f0005,f0005_form,f0005_convert
 from plano_model import plano,plano_form,plano_convert
 from ubicacion_model import ubicacion,ubicacion_form,ubicacion_convert
 
 app= Flask(__name__)
 #app.register_blueprint(f0016_app)
-#@app.route("/")
+#@app.route("/", methods=['GET', 'POST'])
 #def home():
-#    return render_template('pages/placeholder.home.html')
-
+#    if request.method == 'GET':
+#        print("fffsdfg")
+#        return render_template('forms/f0033.html')
+#    if request.method == 'POST':
+#        d = request.form
+#        print("fff")
+#        print(d)
+#    return redirect('/')
 @app.route("/")
 def home():
     disc = gd.items_folder(service,'Formatos_Calidad')
@@ -49,6 +59,7 @@ def edit_protocolo():
         fname = 'f' + name.split('.')[0].split('-')[-1]
         return render_template('forms/' + fname + '.html')
     if request.method == 'POST':
+        print(request.form)
         exec("form =" + fname + "_form(request.form)")
         exec("formats = " + fname + "_convert(" + fname + "(),form)")
         exec("db_session.add(formats)")
@@ -75,7 +86,7 @@ def planogetData():
     name = request.args.get('q', None)
     print(name)
     qry = db_session.query(plano).all()
-    planos = [x.codigo+' Rev.'+ x.rev for x in qry]
+    planos = [x.codigo+'_Rev.'+ x.rev + ' ' for x in qry]
     json_str = json.dumps(planos)
     return jsonify(json_str)
 
@@ -87,6 +98,7 @@ def upload():
         f = request.files['file']
         filename, name = gd.detect_barcode(f)
         gd.upload_file(service, 'DataBase', filename, name, 'image/jpeg')
+        
     return redirect('/')
 if __name__ == '__main__':
     app.run()

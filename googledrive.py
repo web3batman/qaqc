@@ -28,7 +28,9 @@ from sqlalchemy.orm.attributes import flag_modified
 
 from f0016_model import f0016,f0016_form,f0016_convert
 from f0006_model import f0006,f0006_form,f0006_convert
-
+from f0033_model import f0033,f0033_form,f0033_convert
+from f0004_model import f0004,f0004_form,f0004_convert
+from f0005_model import f0005,f0005_form,f0005_convert
 def all_files(service):
     result = []
     page_token = None
@@ -83,8 +85,10 @@ def upload_file(service, pathgoogle, filename, name,  mimetype):
 def generate_doc(formato, id):
     docform = "doc/" + formato +  ".docx"
     exec("qry2 = db_session.query("+formato+").filter("+formato+".id==int(id)).first()")
+#    qry3 = locals()['qry2']
+#    list1 = [x for x in qry3.items.split(' ') if x]
+#    [{"descripcion":x,"cable":"4/0 - 4/0","metal":"250"} for x in list1 if x=="s3"]
     doc = DocxTemplate(docform)
-    
     fid = id.zfill(3)
     fform = formato[2:]
     name = fform + fid
