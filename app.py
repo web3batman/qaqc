@@ -15,7 +15,7 @@ from f0007_model import f0007,f0007_form,f0007_convert
 from f0033_model import f0033,f0033_form,f0033_convert
 from f0004_model import f0004,f0004_form,f0004_convert
 from f0005_model import f0005,f0005_form,f0005_convert
-from plano_model import plano,plano_form,plano_convert
+from plano_model import plano,plano_form,plano_convert,plano_dict
 from ubicacion_model import ubicacion,ubicacion_form,ubicacion_convert
 
 app= Flask(__name__)
@@ -23,12 +23,7 @@ app= Flask(__name__)
 #@app.route("/", methods=['GET', 'POST'])
 #def home():
 #    if request.method == 'GET':
-#        print("fffsdfg")
-#        return render_template('forms/f0033.html')
-#    if request.method == 'POST':
-#        d = request.form
-#        print("fff")
-#        print(d)
+#        return redirect('https://drive.google.com/uc?id=17I_bNVPVvkyNVDHz2QvgMt7ndaipUn_b')
 #    return redirect('/')
 @app.route("/")
 def home():
@@ -67,12 +62,16 @@ def edit_protocolo():
         return redirect('/')     
 @app.route('/protocolo_print', methods=['GET', 'POST'])
 def protocolo_print():
-    id=request.args.get('id', None)
-    formato=request.args.get('formato', None)
-    filename, fname = gd.generate_doc(formato, id)    
-    gd.upload_file(service, 'DataBase', filename, fname, 'application/msword')
+    if request.method == 'GET':
+        id=request.args.get('id', None)
+        formato=request.args.get('formato', None)
+        filename, fname = gd.generate_doc(formato, id)    
+        upload1 =  gd.upload_file(service, 'DataBase', filename, fname, 'application/msword')
+        url2 = upload1['embedLink']
+        print(url2)
+        return render_template('pages/result_protocolo.html',url = url2)
 #    return send_file(file_stream, as_attachment=True, attachment_filename="f0016_2_"+"_1_"+".docx")
-    return redirect('/')
+
 @app.route("/getData", methods=['GET'])
 def getData():
     name = request.args.get('q', None)
@@ -86,10 +85,18 @@ def planogetData():
     name = request.args.get('q', None)
     print(name)
     qry = db_session.query(plano).all()
-    planos = [x.codigo+'_Rev.'+ x.rev + ' ' for x in qry]
+    planos = [x.codigo+'Rev._'+ x.rev + ' ' for x in qry]
     json_str = json.dumps(planos)
     return jsonify(json_str)
-
+@app.route("/planogetid", methods=['GET'])
+def planogetDid():
+    name = request.args.get('q', None)
+    name1 = name.split('Rev._')
+    try:
+        qry = db_session.query(plano).filter(plano.codigo==name1[0] and plano.rev==name1[1].rstrip()).first()
+    except:
+        print("no tiene reviscion")
+    return jsonify(qry.id_google)
 @app.route('/upload', methods = ['GET', 'POST'])
 def upload():
     if request.method == 'GET':

@@ -1,107 +1,95 @@
 {% extends 'forms/main_template.html' %}
 {% block title %}Curado{% endblock %}
 {% block content %}
-<div class="ui-grid-b">
-    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Revisión Topográfica:</legend>
-            <input type="radio" name="f.e11" id="f.e11a" value="c"  checked="checked">
-            <label for="f.e11a">C</label>
-            <input type="radio" name="f.e11" id="f.e11b" value="na">
-            <label for="f.e11b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Orientación:</legend>
-            <input type="radio" name="f.e12" id="f.e12a" value="c"  checked="checked">
-            <label for="f.e12a">C</label>
-            <input type="radio" name="f.e12" id="f.e12b" value="na">
-            <label for="f.e12b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Ubicación Coordenadas:</legend>
-            <input type="radio" name="f.e13" id="f.e13a" value="c"  checked="checked">
-            <label for="f.e13a">C</label>
-            <input type="radio" name="f.e13" id="f.e13b" value="na">
-            <label for="f.e13b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Alineamiento y verticalidad  :</legend>
-            <input type="radio" name="f.e14" id="f.e14a" value="c"  checked="checked">
-            <label for="f.e14a">C</label>
-            <input type="radio" name="f.e14" id="f.e14b" value="na">
-            <label for="f.e14b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Niveles:</legend>
-            <input type="radio" name="f.e15" id="f.e15a" value="c"  checked="checked">
-            <label for="f.e15a">C</label>
-            <input type="radio" name="f.e15" id="f.e15b" value="na">
-            <label for="f.e15b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Dimensiones  :</legend>
-            <input type="radio" name="f.e16" id="f.e16a" value="c"  checked="checked">
-            <label for="f.e16a">C</label>
-            <input type="radio" name="f.e16" id="f.e16b" value="na">
-            <label for="f.e16b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Limpieza :</legend>
-            <input type="radio" name="f.e17" id="f.e17a" value="c"  checked="checked">
-            <label for="f.e17a">C</label>
-            <input type="radio" name="f.e17" id="f.e17b" value="na">
-            <label for="f.e17b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Aplicación desmoldante:</legend>
-            <input type="radio" name="f.e18" id="f.e18a" value="c"  checked="checked">
-            <label for="f.e18a">C</label>
-            <input type="radio" name="f.e18" id="f.e18b" value="na">
-            <label for="f.e18b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Chaflanes / biseles:</legend>
-            <input type="radio" name="f.e19" id="f.e19a" value="c"  checked="checked">
-            <label for="f.e19a">C</label>
-            <input type="radio" name="f.e19" id="f.e19b" value="na">
-            <label for="f.e19b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Ventana de vaciado:</legend>
-            <input type="radio" name="f.e110" id="f.e110a" value="c"  checked="checked">
-            <label for="f.e110a">C</label>
-            <input type="radio" name="f.e110" id="f.e110b" value="na">
-            <label for="f.e110b">NA</label>
-        </fieldset> 
-    </div></div>
-    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:90px">
-        <fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Soporte adecuado:</legend>
-            <input type="radio" name="f.e111" id="f.e111a" value="c"  checked="checked">
-            <label for="f.e111a">C</label>
-            <input type="radio" name="f.e111" id="f.e111b" value="na">
-            <label for="f.e111b">NA</label>
-        </fieldset> 
-    </div></div>
-</div>
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Revisión Topográfica:</legend>
+        <input type="radio" name="f.e11" id="f.e11a" value="c"  checked="checked">
+        <label for="f.e11a">C</label>
+        <input type="radio" name="f.e11" id="f.e11b" value="na">
+        <label for="f.e11b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Orientación:</legend>
+        <input type="radio" name="f.e12" id="f.e12a" value="c"  checked="checked">
+        <label for="f.e12a">C</label>
+        <input type="radio" name="f.e12" id="f.e12b" value="na">
+        <label for="f.e12b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Ubicación Coordenadas:</legend>
+        <input type="radio" name="f.e13" id="f.e13a" value="c"  checked="checked">
+        <label for="f.e13a">C</label>
+        <input type="radio" name="f.e13" id="f.e13b" value="na">
+        <label for="f.e13b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Alineamiento y verticalidad  :</legend>
+        <input type="radio" name="f.e14" id="f.e14a" value="c"  checked="checked">
+        <label for="f.e14a">C</label>
+        <input type="radio" name="f.e14" id="f.e14b" value="na">
+        <label for="f.e14b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Niveles:</legend>
+        <input type="radio" name="f.e15" id="f.e15a" value="c"  checked="checked">
+        <label for="f.e15a">C</label>
+        <input type="radio" name="f.e15" id="f.e15b" value="na">
+        <label for="f.e15b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Dimensiones  :</legend>
+        <input type="radio" name="f.e16" id="f.e16a" value="c"  checked="checked">
+        <label for="f.e16a">C</label>
+        <input type="radio" name="f.e16" id="f.e16b" value="na">
+        <label for="f.e16b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Limpieza :</legend>
+        <input type="radio" name="f.e17" id="f.e17a" value="c"  checked="checked">
+        <label for="f.e17a">C</label>
+        <input type="radio" name="f.e17" id="f.e17b" value="na">
+        <label for="f.e17b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Aplicación desmoldante:</legend>
+        <input type="radio" name="f.e18" id="f.e18a" value="c"  checked="checked">
+        <label for="f.e18a">C</label>
+        <input type="radio" name="f.e18" id="f.e18b" value="na">
+        <label for="f.e18b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Chaflanes / biseles:</legend>
+        <input type="radio" name="f.e19" id="f.e19a" value="c"  checked="checked">
+        <label for="f.e19a">C</label>
+        <input type="radio" name="f.e19" id="f.e19b" value="na">
+        <label for="f.e19b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Ventana de vaciado:</legend>
+        <input type="radio" name="f.e110" id="f.e110a" value="c"  checked="checked">
+        <label for="f.e110a">C</label>
+        <input type="radio" name="f.e110" id="f.e110b" value="na">
+        <label for="f.e110b">NA</label>
+    </fieldset> 
+
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Soporte adecuado:</legend>
+        <input type="radio" name="f.e111" id="f.e111a" value="c"  checked="checked">
+        <label for="f.e111a">C</label>
+        <input type="radio" name="f.e111" id="f.e111b" value="na">
+        <label for="f.e111b">NA</label>
+    </fieldset> 
+
     <fieldset data-role="controlgroup" data-type="horizontal">
         <legend>Grado:</legend>
         <input type="radio" name="f.e21" id="f.e21a" value="c"  checked="checked">

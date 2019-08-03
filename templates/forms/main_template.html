@@ -37,7 +37,7 @@
         <ul data-role="listview" id="contributionList" data-split-icon="delete" data-split-theme="d"></ul>
     </div>
     <input id="plano" name="plano" type="hidden" value=""/>
-    
+
     {% block content %}{% endblock %}
     
     <div>Observaciones:<input id="observacion" name="observacion" type="text" value=""/></div>
@@ -97,7 +97,12 @@
     $("#addContribution").on('mousedown touchstart', function(){
     var newAmount = $('#planoinset-autocomplete-input').val();
     if(newAmount != '') {
-        $('#contributionList').append('<li><a>' + newAmount + '</a><a class="deleteMe"></a></li>').listview('refresh');
+      $.getJSON($SCRIPT_ROOT + '/planogetid', {
+        q: newAmount,
+      }, function(data) {
+         $('#contributionList').append('<li><a href=https://drive.google.com/uc?id=' + data +'>' + newAmount + '</a><a class="deleteMe"></a></li>').listview('refresh');
+      });
+
         var column1RelArray = $('#contributionList').text();
         $('#plano').val(column1RelArray);
         $('#planoinset-autocomplete-input').val('');

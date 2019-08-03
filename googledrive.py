@@ -12,7 +12,7 @@ import barcode
 from barcode.writer import ImageWriter
 import cv2
 import os
-
+import io
 import imutils
 from datetime import date
 
@@ -80,7 +80,17 @@ def upload_file(service, pathgoogle, filename, name,  mimetype):
     res = service.files().insert(
                 body=body,
                 media_body= media_body).execute()
-    return True
+    return res
+def download(service, file_id):
+    request1 = service.files().get_media(fileId=file_id)
+    tmp_file = 'temp_plano.pdf'
+    fh = io.FileIO(tmp_file,'wb')     
+    downloader = MediaIoBaseDownload(fh, request1)
+    done = False
+    while done is False:
+        status, done = downloader.next_chunk()
+    fh.close()
+    return tmp_file
 
 def generate_doc(formato, id):
     docform = "doc/" + formato +  ".docx"
@@ -103,6 +113,7 @@ def generate_doc(formato, id):
     filename = "temp/temp.docx"
     doc.save(filename)
     fname = name + ".docx"
+    qry3 = locals()['qry2']
     return filename, fname
 def detect_barcode(f):
     jpgname = 'temp/temp.jpg'
@@ -154,3 +165,4 @@ def detect_barcode(f):
     filename = "temp/" + name
     os.rename(jpgname, filename)
     return filename, name
+
