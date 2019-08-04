@@ -1,9 +1,12 @@
+<div class="ui-grid-b">
 {%for form in dbform%}
-    <fieldset data-role="controlgroup" data-type="horizontal">
-        <legend>{{form[0]}}:</legend>
-        <input type="radio" name="{{form[1]}}" id="{{form[1]}}a" value="c"  checked="checked">
-        <label for="{{form[1]}}a">C</label>
-        <input type="radio" name="{{form[0]}}" id="{{form[1]}}b" value="na">
-        <label for="{{form[1]}}b">NA</label>
-    </fieldset> 
+    <div class="ui-block-c">
+    <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
+       <fieldset data-role="controlgroup" data-type="horizontal" >
+          <input type="checkbox" name="{{form[1]}}" id="{{form[1]}}" >
+          <label for="{{form[1]}}" style="width: 90px"><font size="1" >{{form[0]}}</font></label>
+      </fieldset>
+    </div>
+    </div>
 {%endfor%}
+</div>

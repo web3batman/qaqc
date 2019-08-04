@@ -97,20 +97,20 @@
     $("#addContribution").on('mousedown touchstart', function(){
     var newAmount = $('#planoinset-autocomplete-input').val();
     if(newAmount != '') {
-      $.getJSON($SCRIPT_ROOT + '/planogetid', {
-        q: newAmount,
-      }, function(data) {
-         $('#contributionList').append('<li><a href=https://drive.google.com/uc?id=' + data +'>' + newAmount + '</a><a class="deleteMe"></a></li>').listview('refresh');
-      });
-
-        var column1RelArray = $('#contributionList').text();
-        $('#plano').val(column1RelArray);
+        $.getJSON($SCRIPT_ROOT + '/planogetid', {
+            q: newAmount,
+        }, function(data) {
+             $('#contributionList').append('<li><a href=https://drive.google.com/uc?id=' + data +'>' + newAmount + '</a><a class="deleteMe"></a></li>').listview('refresh');
+             var column1RelArray = $('#contributionList').text();
+             $('#plano').val(column1RelArray);
+        });
         $('#planoinset-autocomplete-input').val('');
-        } else {
-    }
+        }
     $(".deleteMe").on('click', function (){
         $(this).parent().remove();
         $('#contributionList').listview('refresh');
+        var column1RelArray = $('#contributionList').text();
+        $('#plano').val(column1RelArray);
     });    
     });
 </script>

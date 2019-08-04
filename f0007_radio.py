@@ -1,14 +1,10 @@
-{% extends 'forms/main_template.html' %}
-{% block title %}Curado{% endblock %}
-{% block content %}
-
 <div class="ui-grid-b">
 
     <div class="ui-block-c">
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
-          <input type="checkbox" name="e11" id="e11" value="C" >
-          <label for="e11" style="width: 90px"><font size="1" >Revisi贸n Topogr谩fica</font></label>
+          <input type="checkbox" name="e11" id="e11" >
+          <label for="e11" style="width: 90px"><font size="1" >Revisi髇 Topogr醘ica</font></label>
       </fieldset>
     </div>
     </div>
@@ -17,7 +13,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e12" id="e12" >
-          <label for="e12" style="width: 90px"><font size="1" >Orientaci贸n</font></label>
+          <label for="e12" style="width: 90px"><font size="1" >Orientaci髇</font></label>
       </fieldset>
     </div>
     </div>
@@ -26,7 +22,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e13" id="e13" >
-          <label for="e13" style="width: 90px"><font size="1" >Ubicaci贸n (Coordenadas)</font></label>
+          <label for="e13" style="width: 90px"><font size="1" >Ubicaci髇 (Coordenadas)</font></label>
       </fieldset>
     </div>
     </div>
@@ -71,7 +67,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e18" id="e18" >
-          <label for="e18" style="width: 90px"><font size="1" >Aplicaci贸n desmoldante</font></label>
+          <label for="e18" style="width: 90px"><font size="1" >Aplicaci髇 desmoldante</font></label>
       </fieldset>
     </div>
     </div>
@@ -116,7 +112,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e22" id="e22" >
-          <label for="e22" style="width: 90px"><font size="1" >Di谩metro y cantidad (acero principal)</font></label>
+          <label for="e22" style="width: 90px"><font size="1" >Di醡etro y cantidad (acero principal)</font></label>
       </fieldset>
     </div>
     </div>
@@ -134,7 +130,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e24" id="e24" >
-          <label for="e24" style="width: 90px"><font size="1" >Di谩metro y cantidad (estribos)</font></label>
+          <label for="e24" style="width: 90px"><font size="1" >Di醡etro y cantidad (estribos)</font></label>
       </fieldset>
     </div>
     </div>
@@ -152,7 +148,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e26" id="e26" >
-          <label for="e26" style="width: 90px"><font size="1" >Tama帽o correcto</font></label>
+          <label for="e26" style="width: 90px"><font size="1" >Tama駉 correcto</font></label>
       </fieldset>
     </div>
     </div>
@@ -170,7 +166,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e28" id="e28" >
-          <label for="e28" style="width: 90px"><font size="1" >Separaci贸n entre mallas</font></label>
+          <label for="e28" style="width: 90px"><font size="1" >Separaci髇 entre mallas</font></label>
       </fieldset>
     </div>
     </div>
@@ -287,7 +283,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e38" id="e38" >
-          <label for="e38" style="width: 90px"><font size="1" >Interf. M茅c. & el茅ctr.</font></label>
+          <label for="e38" style="width: 90px"><font size="1" >Interf. M閏. & el閏tr.</font></label>
       </fieldset>
     </div>
     </div>
@@ -296,7 +292,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e39" id="e39" >
-          <label for="e39" style="width: 90px"><font size="1" >Protecci贸n contra clima</font></label>
+          <label for="e39" style="width: 90px"><font size="1" >Protecci髇 contra clima</font></label>
       </fieldset>
     </div>
     </div>
@@ -314,7 +310,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e42" id="e42" >
-          <label for="e42" style="width: 90px"><font size="1" >(Di谩metro, longitud, tipo)</font></label>
+          <label for="e42" style="width: 90px"><font size="1" >(Di醡etro, longitud, tipo)</font></label>
       </fieldset>
     </div>
     </div>
@@ -323,7 +319,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e43" id="e43" >
-          <label for="e43" style="width: 90px"><font size="1" >(Ubicaci贸n, proyecci贸n)/ Topogr谩f.</font></label>
+          <label for="e43" style="width: 90px"><font size="1" >(Ubicaci髇, proyecci髇)/ Topogr醘.</font></label>
       </fieldset>
     </div>
     </div>
@@ -341,7 +337,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e45" id="e45" >
-          <label for="e45" style="width: 90px"><font size="1" >Proyecci贸n de rosca</font></label>
+          <label for="e45" style="width: 90px"><font size="1" >Proyecci髇 de rosca</font></label>
       </fieldset>
     </div>
     </div>
@@ -359,7 +355,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e47" id="e47" >
-          <label for="e47" style="width: 90px"><font size="1" >Soldadura aut贸gena</font></label>
+          <label for="e47" style="width: 90px"><font size="1" >Soldadura aut骻ena</font></label>
       </fieldset>
     </div>
     </div>
@@ -368,7 +364,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e48" id="e48" >
-          <label for="e48" style="width: 90px"><font size="1" >Cuadratura y fijaci贸n</font></label>
+          <label for="e48" style="width: 90px"><font size="1" >Cuadratura y fijaci髇</font></label>
       </fieldset>
     </div>
     </div>
@@ -386,7 +382,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e410" id="e410" >
-          <label for="e410" style="width: 90px"><font size="1" >Tuber铆as</font></label>
+          <label for="e410" style="width: 90px"><font size="1" >Tuber韆s</font></label>
       </fieldset>
     </div>
     </div>
@@ -395,7 +391,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e411" id="e411" >
-          <label for="e411" style="width: 90px"><font size="1" >Conductos el茅ctricos</font></label>
+          <label for="e411" style="width: 90px"><font size="1" >Conductos el閏tricos</font></label>
       </fieldset>
     </div>
     </div>
@@ -485,7 +481,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e58" id="e58" >
-          <label for="e58" style="width: 90px"><font size="1" >Protecci贸n contra clima</font></label>
+          <label for="e58" style="width: 90px"><font size="1" >Protecci髇 contra clima</font></label>
       </fieldset>
     </div>
     </div>
@@ -512,7 +508,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e511" id="e511" >
-          <label for="e511" style="width: 90px"><font size="1" >Juntas de construcci贸n</font></label>
+          <label for="e511" style="width: 90px"><font size="1" >Juntas de construcci髇</font></label>
       </fieldset>
     </div>
     </div>
@@ -521,7 +517,7 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e512" id="e512" >
-          <label for="e512" style="width: 90px"><font size="1" >Verificaci贸n de equipos   (bombas, vibradoras Chutes, Escantill贸n)</font></label>
+          <label for="e512" style="width: 90px"><font size="1" >Verificaci髇 de equipos   (bombas, vibradoras Chutes, Escantill髇)</font></label>
       </fieldset>
     </div>
     </div>
@@ -530,37 +526,9 @@
     <div class="ui-bar ui-bar-c" style="height:60px;padding:0px">
        <fieldset data-role="controlgroup" data-type="horizontal" >
           <input type="checkbox" name="e513" id="e513" >
-          <label for="e513" style="width: 90px"><font size="1" >Sistema de Tuber铆as Para el Vaciado</font></label>
+          <label for="e513" style="width: 90px"><font size="1" >Sistema de Tuber韆s Para el Vaciado</font></label>
       </fieldset>
     </div>
     </div>
+
 </div>
-聽聽聽聽聽聽聽聽<fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Dise帽o de Mezcla1:</legend>
-            <input type="radio" name="e61" id="e61a" value="5310N67A45" checked="checked">
-            <label for="e61a">5310N67A45</label>
-            <input type="radio" name="e61" id="e61b" value="5150N64A">
-            <label for="e61b">5150N64A</label>
-            <input type="radio" name="e61" id="e61c" value="5150N67A<">
-            <label for="e61c">5150N67A</label>
-        </fieldset>
-聽聽聽聽聽聽聽聽<div>Tipo de concreto:<input type="text" name="e62" id="f.e62a" value="Bombeable"></div>
-聽聽聽聽聽聽聽聽<fieldset data-role="controlgroup" data-type="horizontal">
-            <legend>Resistencia F麓c:</legend>
-            <input type="radio" name="e63" id="e63a" value="1Mpa" checked="checked">
-            <label for="e63a">1Mpa</label>
-            <input type="radio" name="e63" id="e63b" value="15Mpa">
-            <label for="e63b">15Mpa</label>
-            <input type="radio" name="e63" id="e63c" value="31Mpa">
-            <label for="e63c">31Mpa</label>
-        </fieldset>
-        <div>TMN de agregado Pulg.:<input type="text" name="e64" id="e64a" value="3/4""></div>
-聽聽聽聽聽聽聽聽<div>Temperatura Min. - M谩x.:<input type="text" name="e65" id="e65a" value="5-32掳C"></div>
-聽聽聽聽聽聽聽聽<div>Asentamiento Slump:<input type="text" name="e66" id="e66a" value=""></div>
-聽聽聽聽聽聽聽聽<div>Contenido de aire  %:<input type="text" name="e67" id="e67a" value=""></div>
-聽聽聽聽聽聽聽聽<div>Aditivos:<input type="text" name="e68" id="e68a" value="Master SetR800/Rheobuild 1202"></div>
-聽聽聽聽聽聽聽聽<div>Volumen M3:<input type="text" name="e69" id="e69a" value=""></div>
-聽聽聽聽聽聽聽聽<div>No. de probetas /Juego:<input type="text" name="e610" id="e610a" value=""></div>
-聽聽聽聽聽聽聽聽<div>No. Juegos requeridos:<input type="text" name="e611" id="e611a" value=""></div>
-聽聽聽聽聽聽聽聽<div>Otros:<input type="text" name="e612" id="e612a" value="NA"></div>
-{% endblock %}

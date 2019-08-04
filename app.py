@@ -5,7 +5,6 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm.attributes import flag_modified
 import pandas as pd
-
 from db_setup import init_db, db_session, service
 
 import googledrive as gd
@@ -65,11 +64,27 @@ def protocolo_print():
     if request.method == 'GET':
         id=request.args.get('id', None)
         formato=request.args.get('formato', None)
-        filename, fname = gd.generate_doc(formato, id)    
+        fid = id.zfill(3)
+        fform = formato[1:]
+        name = fform + fid
+        filename, fname, qry3= gd.generate_doc(formato, id)
+        ps = qry3.plano.split(' ')
+        count = 0
+        planos = []
+        for x in ps:
+            if x:
+                ps1 = x.split('Rev._')
+                qry4 = db_session.query(plano).filter(plano.codigo==ps1[0] and plano.rev==ps1[1].rstrip()).first()
+                print(qry4)
+                tmpfile = gd.download(service, qry4.id_google)
+                name1 = name + str(count) + ".pdf"
+                count = count + 1
+                upload2 =  gd.upload_file(service, 'DataBase',  tmpfile, name1, 'application/pdf')
+                planos.append(upload2['id'])
         upload1 =  gd.upload_file(service, 'DataBase', filename, fname, 'application/msword')
-        url2 = upload1['embedLink']
-        print(url2)
-        return render_template('pages/result_protocolo.html',url = url2)
+        embedLink = upload1['embedLink']
+        downloadlink = 'https://drive.google.com/uc?id=' + upload1['id']
+        return render_template('pages/result_protocolo.html',embedLink = embedLink, downloadlink = downloadlink, planos=planos)
 #    return send_file(file_stream, as_attachment=True, attachment_filename="f0016_2_"+"_1_"+".docx")
 
 @app.route("/getData", methods=['GET'])
@@ -108,7 +123,7 @@ def upload():
         
     return redirect('/')
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
 
 

@@ -11,7 +11,6 @@ from docx.shared import Mm, Inches, Pt
 import barcode
 from barcode.writer import ImageWriter
 import cv2
-import os
 import io
 import imutils
 from datetime import date
@@ -28,6 +27,7 @@ from sqlalchemy.orm.attributes import flag_modified
 
 from f0016_model import f0016,f0016_form,f0016_convert
 from f0006_model import f0006,f0006_form,f0006_convert
+from f0007_model import f0007,f0007_form,f0007_convert
 from f0033_model import f0033,f0033_form,f0033_convert
 from f0004_model import f0004,f0004_form,f0004_convert
 from f0005_model import f0005,f0005_form,f0005_convert
@@ -83,7 +83,7 @@ def upload_file(service, pathgoogle, filename, name,  mimetype):
     return res
 def download(service, file_id):
     request1 = service.files().get_media(fileId=file_id)
-    tmp_file = 'temp_plano.pdf'
+    tmp_file = 'temp/temp_plano.pdf'
     fh = io.FileIO(tmp_file,'wb')     
     downloader = MediaIoBaseDownload(fh, request1)
     done = False
@@ -100,7 +100,7 @@ def generate_doc(formato, id):
 #    [{"descripcion":x,"cable":"4/0 - 4/0","metal":"250"} for x in list1 if x=="s3"]
     doc = DocxTemplate(docform)
     fid = id.zfill(3)
-    fform = formato[2:]
+    fform = formato[1:]
     name = fform + fid
     EAN = barcode.get_barcode_class('ean8')
     ean = EAN(name + '0', writer=ImageWriter())
@@ -114,7 +114,7 @@ def generate_doc(formato, id):
     doc.save(filename)
     fname = name + ".docx"
     qry3 = locals()['qry2']
-    return filename, fname
+    return filename, fname, qry3
 def detect_barcode(f):
     jpgname = 'temp/temp.jpg'
     jpgbar = 'temp/tempbar.jpg'
@@ -163,6 +163,6 @@ def detect_barcode(f):
     db_session.commit()
     name = nom_form[1:4] + str(reg).zfill(4) + ".jpg"
     filename = "temp/" + name
-    os.rename(jpgname, filename)
-    return filename, name
+#    os.rename(jpgname, filename)
+    return jpgname, name
 
